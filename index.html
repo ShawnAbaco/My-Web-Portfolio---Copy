@@ -221,13 +221,13 @@
 
 for (let i = 0; i < particleCount; i++) {
   const particle = document.createElement('img');
-  particle.src = 'try.jpg';
-  const size = Math.random() * 70 + 80; // 80px to 150px
+  particle.src = 'try.png'; // your star image
+  const size = Math.random() * 80 + 70; // 50px to 110px (you can tweak)
   particle.style.width = `${size}px`;
-  particle.style.height = 'auto'; // maintain aspect ratio
+  particle.style.height = `${size}px`; // set height equal to width for perfect circle
   particle.style.left = `${Math.random() * 100}%`;
   particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
-  particle.style.animationDelay = `${Math.random() * 5}s`;
+  particle.style.animationDelay = `${Math.random() * 10}s`;
   particle.classList.add('floating-image');
   particleContainer.appendChild(particle);
 }
