@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shawn's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">Shawn's<span> Portfolio</span></h1>
+      <button class="hamburger" id="hamburger">☰</button>
+      <nav id="navLinks" class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="modeToggle" class="mode-btn">🌙</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="particles"></div>
+    <div class="container hero-content">
+      <div class="hero-text" data-animate>
+        <h2>Hello, I'm <br><span class="highlight-name">Shawn Laurence Abaco</span></h2>
+        <p>A Passionate <span class="typed-text"></span><span class="cursor">|</span></p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="Shawn-Resume.pdf" class="btn secondary-btn" download>📄 Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-image" data-animate>
+        <img src="me.jpg" alt="Profile Picture" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about" data-animate>
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          With years of hands-on experience, I specialize in creating web systems that are 
+          fast, scalable, and user-friendly. I focus on clean, maintainable code and 
+          designing sleek UIs that deliver great user experiences.
+        </p>
+      </div>
+      <div class="about-skills">
+        <h3>Skills</h3>
+        <div class="skills">
+          <span>⚡ PHP / Laravel</span>
+          <span>⚡ JavaScript / React</span>
+          <span>⚡ SQL & Databases</span>
+          <span>⚡ UI/UX Design</span>
+        </div>
+        <div class="progress">
+          <p>PHP / Laravel</p><div><span style="width:90%"></span></div>
+          <p>JavaScript / React</p><div><span style="width:80%"></span></div>
+          <p>SQL & Databases</p><div><span style="width:85%"></span></div>
+          <p>UI/UX Design</p><div><span style="width:75%"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects" data-animate>
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="overlay">
+            <a href="#">🔗 Live Demo</a>
+            <a href="#">💾 GitHub</a>
+          </div>
+          <h3>🌐 Portfolio Website</h3>
+          <p>A responsive portfolio showcasing modern design with animations.</p>
+        </div>
+        <div class="card">
+          <div class="overlay">
+            <a href="#">🔗 Live Demo</a>
+            <a href="#">💾 GitHub</a>
+          </div>
+          <h3>💻 POS System</h3>
+          <p>A point-of-sale system with sales reports and cashier management.</p>
+        </div>
+        <div class="card">
+          <div class="overlay">
+            <a href="#">🔗 Live Demo</a>
+            <a href="#">💾 GitHub</a>
+          </div>
+          <h3>📊 Analytics Dashboard</h3>
+          <p>A professional dashboard for monitoring real-time performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" data-animate>
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Let’s collaborate! Reach me through any of the platforms below:</p>
+      <div class="socials">
+        <a href="mailto:shawnabaco8@gmail.com" target="_blank">📧 Gmail</a>
+        <a href="https://www.instagram.com/shwnnn.28/" target="_blank">📸 Instagram</a>
+        <a href="https://www.facebook.com/shwnnn28" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Shawn Laurence Abaco. “Turning coffee into code and ideas into reality.”</p>
+      <div class="socials">
+        <a href="https://github.com/shawnabaco" target="_blank">🐱</a>
+        <a href="https://linkedin.com/in/shawnabaco" target="_blank">💼</a>
+        <a href="mailto:shawnabaco8@gmail.com">📧</a>
+      </div>
+      <a href="#home" class="back-to-top">⬆ Back to Top</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      hamburger.textContent = navLinks.classList.contains("show") ? "✖" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        hamburger.textContent = "☰";
+      });
+    });
+
+    const toggle = document.getElementById("modeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      toggle.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    });
+
+    const animEls = document.querySelectorAll("[data-animate]");
+    const reveal = () => {
+      animEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) el.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+    const textArray = ["Web Developer", "UI Designer", "Problem Solver"];
+    const typingDelay = 100, erasingDelay = 70, newTextDelay = 1500;
+    let textArrayIndex = 0, charIndex = 0;
+
+    function type() {
+      if (charIndex < textArray[textArrayIndex].length) {
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++; setTimeout(type, typingDelay);
+      } else { setTimeout(erase, newTextDelay); }
+    }
+    function erase() {
+      if (charIndex > 0) {
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--; setTimeout(erase, erasingDelay);
+      } else {
+        textArrayIndex++; if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 500);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(type, newTextDelay + 250);
+    });
+
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("nav a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const secTop = sec.offsetTop - 100;
+        if (scrollY >= secTop) current = sec.getAttribute("id");
+      });
+      navItems.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href").includes(current)) a.classList.add("active");
+      });
+    });
+
+    document.querySelectorAll('nav a, .back-to-top').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    const particleContainer = document.querySelector('.particles');
+    const particleCount = 30;
+
+for (let i = 0; i < particleCount; i++) {
+  const particle = document.createElement('img');
+  particle.src = 'try.jpg';
+  const size = Math.random() * 70 + 80; // 80px to 150px
+  particle.style.width = `${size}px`;
+  particle.style.height = 'auto'; // maintain aspect ratio
+  particle.style.left = `${Math.random() * 100}%`;
+  particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+  particle.style.animationDelay = `${Math.random() * 5}s`;
+  particle.classList.add('floating-image');
+  particleContainer.appendChild(particle);
+}
+
+
+
+  </script>
+</body>
+</html>
